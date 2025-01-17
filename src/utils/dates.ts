@@ -7,7 +7,7 @@ import {
   formats,
 } from "./formatting";
 import { defaults, ParsedOptions } from "../types/options";
-import { english } from "../l10n/default";
+import { Persian } from "../l10n/fa";
 
 export interface FormatterArgs {
   config?: ParsedOptions;
@@ -17,7 +17,7 @@ export interface FormatterArgs {
 
 export const createDateFormatter = ({
   config = defaults,
-  l10n = english,
+  l10n = Persian,
   isMobile = false,
 }: FormatterArgs) => (
   dateObj: Date,
@@ -42,7 +42,7 @@ export const createDateFormatter = ({
     .join("");
 };
 
-export const createDateParser = ({ config = defaults, l10n = english }) => (
+export const createDateParser = ({ config = defaults, l10n = Persian }) => (
   date: Date | string | number,
   givenFormat?: string,
   timeless?: boolean,
@@ -55,21 +55,21 @@ export const createDateParser = ({ config = defaults, l10n = english }) => (
   let parsedDate: Date | undefined;
   const dateOrig = date;
 
-  if (date instanceof Date) parsedDate = new locale.date(date.getTime());
+  if (date instanceof Date) parsedDate = new (locale.date || Date)(date.getTime());
   else if (
     typeof date !== "string" &&
     date.toFixed !== undefined // timestamp
   )
     // create a copy
 
-    parsedDate = new locale.date(date);
+    parsedDate = new (locale.date || Date)(date);
   else if (typeof date === "string") {
     // date string
     const format = givenFormat || (config || defaults).dateFormat;
     const datestr = String(date).trim();
 
     if (datestr === "today") {
-      parsedDate = new locale.date();
+      parsedDate = new (locale.date || Date)();
       timeless = true;
     } else if (config && config.parseDate) {
       parsedDate = config.parseDate(date, format);
@@ -77,7 +77,7 @@ export const createDateParser = ({ config = defaults, l10n = english }) => (
       /Z$/.test(datestr) ||
       /GMT$/.test(datestr) // datestrings w/ timezone
     ) {
-      parsedDate = new locale.date(date);
+      parsedDate = new (locale.date || Date)(date);
     } else {
       let matched,
         ops: { fn: RevFormatFn; val: string }[] = [];
@@ -101,8 +101,8 @@ export const createDateParser = ({ config = defaults, l10n = english }) => (
 
       parsedDate =
         !config || !config.noCalendar
-          ? new locale.date(new locale.date().getFullYear(), 0, 1, 0, 0, 0, 0)
-          : (new locale.date(new locale.date().setHours(0, 0, 0, 0)) as Date);
+          ? new (locale.date || Date)(new (locale.date || Date)().getFullYear(), 0, 1, 0, 0, 0, 0)
+          : (new (locale.date || Date)(new (locale.date || Date)().setHours(0, 0, 0, 0)) as Date);
 
       ops.forEach(
         ({ fn, val }) =>

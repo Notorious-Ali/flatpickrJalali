@@ -35,12 +35,11 @@ export const Persian: CustomLocale = {
       "دوشنبه",
       "سه‌شنبه",
       "چهارشنبه",
-      "پنچ‌شنبه",
+      "پنج‌شنبه",
       "جمعه",
       "شنبه",
     ],
   },
-
   months: {
     shorthand: [
       "فروردین",
@@ -71,14 +70,12 @@ export const Persian: CustomLocale = {
       "اسفند",
     ],
   },
-  daysInMonth: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29],
-  isLeap: function (month: number, year: number) {
-    return (
-      month === 11 && [1, 5, 9, 13, 17, 22, 26, 30].indexOf(year % 33) > -1
-    );
+  daysInMonth: [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29] as [number, number, number, number, number, number, number, number, number, number, number, number],
+  isLeap: function (month, year) {
+    return (month === 11 && [1, 5, 9, 13, 17, 22, 26, 30].indexOf(year % 33) > -1);
   },
   firstDayOfWeek: 6,
-  ordinal: () => {
+  ordinal: function () {
     return "";
   },
   rangeSeparator: " تا ",
@@ -91,7 +88,7 @@ export const Persian: CustomLocale = {
   hourAriaLabel: "ساعت",
   minuteAriaLabel: "دقیقه",
   time_24hr: false,
-  getWeek,
+  getWeek: getWeek,
   date: JalaliDate,
 };
 
