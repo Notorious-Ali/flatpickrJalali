@@ -5,6 +5,7 @@
 [![CDNJS](https://img.shields.io/cdnjs/v/flatpickr.svg)](https://cdnjs.com/libraries/flatpickr)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://raw.githubusercontent.com/flatpickr/flatpickr/master/LICENSE.md)
 
+
 ## انگیزه
 
 تقریباً هر پروژه بزرگ SPA یا برنامه‌ای شامل ورودی تاریخ و زمان است. پیاده‌سازی‌های بومی مرورگرها در این زمینه ناسازگار و دارای امکانات محدود هستند. بیشتر کتابخانه‌های دیگر نیاز به استفاده از وابستگی‌های سنگین مانند jQuery، Bootstrap و moment.js دارند. هدف این بود که کتابخانه‌ای زیبا، بدون وابستگی‌های اضافی، قدرتمند و قابل گسترش ارائه شود.
@@ -28,7 +29,7 @@
 ![نمونه](https://user-images.githubusercontent.com/11352152/36033089-f37dc1d0-0d7d-11e8-8ec4-c7a56d1ff92e.png)
 
 flatpickr در مقایسه با سایر کتابخانه‌ها امکانات بیشتری را با حجم کمتر ارائه می‌دهد.
-
+![jalali-date-min](https://user-images.githubusercontent.com/3192517/152175981-d039c3b2-9b7c-40b0-bc1a-2dabda4696c3.gif) [ ![jalali-date-min](https://user-images.githubusercontent.com/3192517/152175981-d039c3b2-9b7c-40b0-bc1a-2dabda4696c3.gif) ](https://user-images.githubusercontent.com/3192517/152175981-d039c3b2-9b7c-40b0-bc1a-2dabda4696c3.gif) [ ](https://user-images.githubusercontent.com/3192517/152175981-d039c3b2-9b7c-40b0-bc1a-2dabda4696c3.gif)
 ## سازگاری
 
 - IE9 و نسخه‌های جدیدتر
